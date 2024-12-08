@@ -1,11 +1,13 @@
 package com.zisis.AccountManagementRestApi.account.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,4 +20,8 @@ public class Account {
     @CollectionTable(name = "transactions", joinColumns = @JoinColumn(name = "account_id"))
     @Column(name = "transaction")
     private List<String> transactions = new ArrayList<>();
+
+    public void addTransaction(String transaction) {
+        this.transactions.add(transaction);
+    }
 }

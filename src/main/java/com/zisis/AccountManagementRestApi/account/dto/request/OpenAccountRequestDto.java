@@ -1,4 +1,4 @@
-package com.zisis.AccountManagementRestApi.account.dto;
+package com.zisis.AccountManagementRestApi.account.dto.request;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;

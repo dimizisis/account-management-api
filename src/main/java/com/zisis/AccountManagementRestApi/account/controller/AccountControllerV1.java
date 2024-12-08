@@ -1,6 +1,6 @@
 package com.zisis.AccountManagementRestApi.account.controller;
 
-import com.zisis.AccountManagementRestApi.account.dto.OpenAccountRequestDto;
+import com.zisis.AccountManagementRestApi.account.dto.request.OpenAccountRequestDto;
 import com.zisis.AccountManagementRestApi.account.entity.Account;
 import com.zisis.AccountManagementRestApi.account.service.AccountService;
 import jakarta.validation.Valid;
