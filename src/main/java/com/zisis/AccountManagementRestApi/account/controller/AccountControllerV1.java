@@ -1,8 +1,10 @@
 package com.zisis.AccountManagementRestApi.account.controller;
 
 import com.zisis.AccountManagementRestApi.account.dto.request.OpenAccountRequestDto;
+import com.zisis.AccountManagementRestApi.account.dto.response.OpenAccountResponseDto;
 import com.zisis.AccountManagementRestApi.account.entity.Account;
 import com.zisis.AccountManagementRestApi.account.service.AccountService;
+import com.zisis.AccountManagementRestApi.account.util.mapping.AccountDtoMapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +24,8 @@ public class AccountControllerV1 {
     }
 
     @PostMapping("/open")
-    public ResponseEntity<Account> openAccount(@Valid @RequestBody OpenAccountRequestDto request) {
+    public ResponseEntity<OpenAccountResponseDto> openAccount(@Valid @RequestBody OpenAccountRequestDto request) {
         var account = accountService.openAccount(request.getCustomerId(), request.getInitialCredit());
-        return ResponseEntity.ok(account);
+        return ResponseEntity.ok(AccountDtoMapper.mapToOpenAccountResponseDto(account));
     }
 }
